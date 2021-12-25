@@ -4,4 +4,5 @@ Create easily shops with sell options only. Different shops with different items
  Dependency:
  
  redemrp
+ 
  redemrp_menu_base
