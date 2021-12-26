@@ -5,8 +5,8 @@ end)
 
 local TEXTS = Config.Texts
 
-RegisterServerEvent('ricx_shopsell:sell')
-AddEventHandler('ricx_shopsell:sell', function(id)
+RegisterServerEvent('ricx_sellshop:opencheck')
+AddEventHandler('ricx_sellshop:opencheck', function(id)
         local _source = source
         local job
         TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
