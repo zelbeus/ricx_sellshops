@@ -3,8 +3,8 @@ Config = {}
 Config.MenuPos = "right" -- 2 options: "right" or "left"
 
 Config.SellShops = {
-    [1] = { name = 'Rhodes Fence', sprite = 90287351, x= 1320.9952392578, y = -1142.3826904297, z = 82.334190368652 }, --[1] is shopid
-    [2] = { name = 'Wapiti Fence', sprite = 90287351, x= 432.06576538086, y = 2197.7985839844, z = 246.37657165527 }, --[2] is shopid
+    [1] = { name = 'Rhodes Fence', blipenabled = true, sprite = 90287351, x= 1320.9952392578, y = -1142.3826904297, z = 82.334190368652, jobreq = false, jobs = {"none"}}, --[1] is shopid
+    [2] = { name = 'Wapiti Fence', blipenabled = true, sprite = 90287351, x= 432.06576538086, y = 2197.7985839844, z = 246.37657165527, jobreq = true, jobs = {"wapiti", "wapiti2"}}, --[2] is shopid
 }
 
 Config.sellItems = {
@@ -27,4 +27,5 @@ Config.Texts = {
     DontHave = "You dont have",
     ToSell = "to sell",
     YouSold = "You sold",
+    DontHaveJob = "You dont have the required job!",
 }
