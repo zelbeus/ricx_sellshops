@@ -17,7 +17,7 @@ AddEventHandler('ricx_sellshop:opencheck', function(id)
             local cango = false
             for i,v in pairs(Config.SellShops[_id].jobs) do
                 if v == job then
-                    cango == true
+                    cango = true
                     break
                 end
             end
