@@ -25,10 +25,12 @@ function SetupPeltPrompt()
     PromptRegisterEnd(ShopPrompt)
 
     for i, v in pairs(Config.SellShops) do
-        blips[i] = N_0x554d9d53f696d002(1664425300, v.x, v.y, v.z)
-        SetBlipSprite(blips[i], v.sprite, 1)
-        SetBlipScale(blips[i], 0.2)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blips[i], v.name)
+	if v.blipenabled == true then
+		blips[i] = N_0x554d9d53f696d002(1664425300, v.x, v.y, v.z)
+		SetBlipSprite(blips[i], v.sprite, 1)
+		SetBlipScale(blips[i], 0.2)
+		Citizen.InvokeNative(0x9CB1A1623062F402, blips[i], v.name)
+	end
     end  
 end
 
@@ -50,7 +52,8 @@ Citizen.CreateThread(function() --
                         local label  = CreateVarString(10, 'LITERAL_STRING', v.name)
                         PromptSetActiveGroupThisFrame(ShopGroup, label)
                         if Citizen.InvokeNative(0xC92AC953F0A982AE,ShopPrompt) then
-                            TriggerEvent("ricx_sellshop:open",i)
+				TriggerServerEvent("ricx_sellshop:opencheck",i)
+                            --TriggerEvent("ricx_sellshop:open",i)
                         end
                     end
                 end
