@@ -6,9 +6,33 @@ end)
 local TEXTS = Config.Texts
 
 RegisterServerEvent('ricx_shopsell:sell')
+AddEventHandler('ricx_shopsell:sell', function(id)
+        local _source = source
+        local job
+        TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
+           job = user.getJob()
+        end)
+        local _id = tonumber(id)
+        if Config.SellShops[_id].jobreq == true then
+            local cango == false
+            for i,v in pairs(Config.SellShops[_id].jobs) do
+                if v == job then
+                    cango == true
+                    break
+                end
+            end
+            if cango == false then 
+                TriggerClientEvent("Notification:left_sellshop", _source, TEXTS.NotifTitle, TEXTS.DontHaveJob, 'menu_textures', 'stamp_locked_rank', 2000)
+                return
+            end
+        end
+        TriggerClientEvent("ricx_sellshop:open", _source, _id)
+end)
+
+RegisterServerEvent('ricx_shopsell:sell')
 AddEventHandler('ricx_shopsell:sell', function(label, name, price)
     local _source = source
-
+        
     local _itemname = tostring(name)
     local _price = tonumber(price)
 
